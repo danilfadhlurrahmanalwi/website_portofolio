@@ -1,0 +1,470 @@
+:root {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Mulish", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #1E201E; /* Warna latar belakang secara keseluruhan */
+    
+}
+
+.page {
+    display: none;
+    text-align: center;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Gaya untuk halaman selamat datang */
+#welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.welcome-content {
+    display: flex;
+    color: white; /* warna pada tulisan di halaman selamat datang */
+    flex-direction: column;
+    align-items: center;
+}
+
+#welcome-page h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.heartbeat {
+    display: inline-block;
+    font-family: 'Mulish', cursive;
+    font-size: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #fff;
+    animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Animasi mengetik */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Animasi kursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white }
+}
+
+
+#welcome-page button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #697565; /* warna pada box di halaman selamat datang */
+    color: #ECDFCC; /* warna pada tulisan di halaman selamat datang */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#welcome-page button:hover {
+    background-color: #3C3D37;
+}
+
+/* Gaya untuk halaman utama */
+.hidden {
+    display: none;
+}
+
+/* Stylish Sticky Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: #697565; /* gradasi emas */
+    /*box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);/* /* bayangan bawah */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2em 0;
+    backdrop-filter: blur(6px); /* efek blur halus jika transparan */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ECDFCC;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    /*background-color: rgba(255, 0, 0, 0); /* transparan awal */
+}
+
+.navbar a:hover {
+    background-color: #3C3D37;
+    color: #ECDFCC;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.621);
+    backdrop-filter: blur(2px);
+}
+
+/* Supaya setiap section tidak tertutup oleh navbar sticky saat scroll */
+section {
+  scroll-margin-top: 60px; /* Sesuaikan dengan tinggi navbar (biasanya 60–80px) */
+}
+
+
+#About_Me .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6em 0;
+    gap: 20px; /* Jarak antara gambar dan teks */
+}
+
+.text-content {
+    flex: 1; /* Memberikan ruang lebih untuk teks */
+    text-align: left;
+    padding: 10px;
+}
+
+.image-content {
+    flex: 1; /* Memberikan ruang yang sama dengan teks untuk gambar */
+    text-align: center;
+}
+
+.profile-image {
+    max-width: 50%; /* Gambar akan disesuaikan dengan ukuran container */
+    height: auto;
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    box-shadow: 0 0 8px 4px #ECDFCC; /* Efek bayangan */
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    box-shadow: 0 0 15px 6px #ECDFCC; /* Efek bayangan saat di-hover */
+}
+
+
+
+/* Gaya tambahan untuk halaman utama */
+header {
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0;
+}
+
+header p {
+    margin-top: 0.2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+
+section {
+    padding: 2em;
+    opacity: 0;
+    animation: fadeInUp 0s forwards;
+    animation-delay: 0.10s;
+}
+
+
+.feature-box, .media-box {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.feature, .media {
+    background: #697565;
+    color: #ECDFCC;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 0.3em;
+    width: 55%;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.700);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+
+h2 {
+    font-family: 'Mulish', cursive; /* Sesuaikan dengan font yang diinginkan */
+    font-size: 1.3em; /* Sesuaikan ukuran font jika diperlukan */
+    margin: 0;
+    padding: 10px 0;
+    text-align: center; /* Menyelaraskan teks ke tengah */
+    color: #ECDFCC;
+}
+
+
+
+
+#Project {
+    background-color: #3C3D37; /* contoh: abu gelap */
+    padding: 2em 0; /* agar isi tidak nempel atas/bawah */
+}
+
+
+
+
+.gallery-background {
+    padding: 20px;
+    /*background-color: #ffffff; /* Warna latar belakang jika diinginkan */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom dengan lebar yang sama */
+    gap: 20px; /* Jarak antara card */
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    
+}
+
+.card-image {
+    width: 100%;
+    filter: blur(0px);
+    transition: filter 0.3s ease;
+    height: 250px; /* atau 300px sesuai kebutuhan */
+    object-fit: cover; /* memastikan gambar tidak terdistorsi dan terisi penuh */
+    border-radius: 10px;
+}
+
+.card:hover .card-image {
+    filter: blur(0);
+}
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ECDFCC;
+    text-align: left;
+    padding: 2.5em;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-content {
+    transform: translateY(0);
+}
+
+#skills {
+    text-align: center;
+    padding: 6em 0;
+    background-color: #1E201E;
+    
+}
+
+#skills h2 {
+    font-size: 1.3em;
+    margin-bottom: 1em;
+    color: #ECDFCC;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill {
+    text-align: center;
+}
+
+.skill img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill img:hover {
+    transform: scale(1.2);
+}
+
+.skill p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ECDFCC;
+}
+
+
+
+
+#contact {
+    text-align: center;
+    margin: 0em 0;
+    padding: 5em 0;
+    background-color: #1E201E;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.contact-link {
+    color: #697565; /* Warna default */
+    font-size: 2em; /* Ukuran ikon */
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #ECDFCC; /* Warna hover, sesuaikan sesuai tema */
+}
+
+
+/* Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #ECDFCC;
+    padding: 2em;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    color: #1E201E;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
+.view-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    background: linear-gradient(135deg, #697565, #ECDFCC);
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.view-btn:hover {
+    background: linear-gradient(135deg, #ECDFCC, #697565);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.4);
+}
+
+
+.footer {
+    text-align: center;
+    padding: 3em 0;
+    background-color: #697565; /* Bisa kamu sesuaikan */
+    color: #ECDFCC; /* Warna teks, sesuaikan dengan tema kamu */
+    font-size: 0.9em;
+    position: relative; /* Atau gunakan fixed jika mau selalu di bawah */
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
